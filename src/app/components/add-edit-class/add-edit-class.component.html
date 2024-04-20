@@ -1,0 +1,32 @@
+<div class="row mt-2">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card border-light mb-3" style="max-width: 20rem;">
+            <div class="card-header text-center">Agregar Curso</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addClass()">
+                    <input formControlName="classRoom" type="text" class="form-control" placeholder="Ingrese nombre del curso">
+                        <span *ngIf="form.get('classRoom')?.hasError('required') && form.get('classRoom')?.touched">
+                            El campo del curso es <strong>requerido</strong>
+                        </span>
+                    <input formControlName="level" type="text" class="form-control mt-2" placeholder="Ingrese el nivel">
+                        <span *ngIf="form.get('level')?.hasError('required') && form.get('level')?.touched">
+                            El campo del nivel es <strong>requerido</strong>
+                        </span>
+                    <input formControlName="teacher" type="text" class="form-control mt-2" placeholder="Ingrese el profesor">
+                        <span *ngIf="form.get('teacher')?.hasError('required') && form.get('teacher')?.touched">
+                           El campo profesor es <strong>requerido</strong>
+                        </span>
+                    <div class="row mt-2 text-center">
+                        <div class="col-lg-6">
+                            <button [routerLink]="['/class']" routerLinkActive="router-link-active"  type="button" class="btn btn-secondary">Volver</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+          </div>
+    </div>
+</div>

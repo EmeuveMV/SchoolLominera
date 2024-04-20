@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="title">
+        <h4 class="mt-2">Listado de Profesores</h4>
+        <button type="button" class="btn btn-primary" [routerLink]="['/add-teacher']" routerLinkActive="router-link-active" >Agregar Profesor</button>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Direccion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ListTeachers" class="table-ligth">
+            <td scope="row">{{ item.name }}</td>
+            <td>{{ item.lastName }}</td>
+            <td>{{ item.materia }}</td>
+            <td>{{ item.cedula }}</td>
+            <td>{{ item.edad }}</td>
+            <td>{{ item.direccion }}</td>
+            <td>
+                <button routerLink="/edit-teacher/{{item.id}}" routerLinkActive="router-link-active"  type="button" class="btn btn-info btn-sm">Editar</button>
+                <button type="button" class="btn btn-danger btn-sm ms-2">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>      
+      </table>
+</div>
+
